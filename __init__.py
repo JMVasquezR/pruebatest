@@ -1,5 +1,5 @@
-from prueba import TestScript
+from display_interface_brief import DisplayInterfaceBrief
 
 SCRIPTS = {
-    'TestScript': TestScript
+    'display_interface_brief': DisplayInterfaceBrief
 }
