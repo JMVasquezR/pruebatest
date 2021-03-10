@@ -5,6 +5,7 @@ from core.auth_methods.ssh import UserPasswordAuthMethod
 from core.commands.ssh import NonUnixCommand
 from core.connectors import SshConnector
 from core.scripts.simple_flow import SimpleScript
+from core.task_status import StatusEnum
 
 
 class DisplayInterfaceBrief(SimpleScript):
@@ -56,9 +57,9 @@ class DisplayInterfaceBrief(SimpleScript):
                         if '>' not in row:
                             self.set_user_log(row)
             if len(self._user_log) != 0:
-                self.status = task_status.WARNING
+                self.status = StatusEnum.WARNING.value
             else:
-                self.status = task_status.SUCCESS
+                self.status = StatusEnum.SUCCESS.value
         except Exception as e:
-            self.status = task_status.FAIL
+            self.status = StatusEnum.FAIL.value
         return True
